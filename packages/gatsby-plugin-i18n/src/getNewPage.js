@@ -11,10 +11,10 @@ const getNewPage = (oldPage, options) => {
 
   return Object.assign({}, oldPage, {
     path: slugAndLang.slug,
-    context: {
+    context: Object.assign({}, oldPage.context, {
       slug: slugAndLang.slug,
       langKey: slugAndLang.langKey
-    },
+    }),
     layout: options.useLangKeyLayout ? slugAndLang.langKey : oldPage.layout
   });
 };
